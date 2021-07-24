@@ -1,0 +1,89 @@
+깃 사용방법
+
+
+깃허브 다운로드 주소
+https://git-scm.com/
+
+git config —global user.name “이름”
+git config —global user.email “이메일”
+
+git remote add origin 복사한 주소 == 원격 저장소에 연결하기
+git remote -v == 원격 저장소에 연결됐는지 확인
+ 
+git push -u origin master == 원격 저장소에 파일올리기
+(-u 옵션은 처음에 한번만 쓰면 됨)
+git push == 원격 저장소와 연결되면 깃 푸시만 사용하면 됨
+
+git pull origin master == 원격 저장소 파일 가져오기 
+(기존 원격저장소 그대로면 git pull만 써도 된다)
+
+pwd == 현재 경로 보여줌
+ 
+ mkdir 디렉터리이름 == 디렉터리 만들기
+
+ ls == 리스트 보기
+ ls -al == 숨겨진 리스트까지 보기
+
+ rm == (remove) 디렉터리 삭제
+ rm -r == 디렉터리 하위 디렉터리 파일까지 삭제
+
+ vim test.txt == txt 파일 만들기
+ 
+ cat 파일이름.확장자 == 텍스트 문서 내용 확인하기
+
+ git init == 깃 저장소 만들기, 디렉터리 초기화
+ git init 디렉터리이름 == 디렉터리를 만들고 깃저장소를 초기화
+
+git log == 저장된 버전 확인하기 
+git log —stat == 커밋에 관련된 파일 보기
+git log —oneline == 옵션 한 줄에 한 커밋씩 보기
+git log —branches == 각 브렌치 커밋을 함께 볼수있다
+git log —branches —graph == 그래프 형식으로 브렌치를 볼 수 있다
+
+git add 문서이름 == 파일을 스테이지에 올리기
+git add . == 현재 저장소 수정파일 모두 스테이지에 올리기
+
+git commit -m “메세지” == 커밋과 동시에 메세지 작성
+git commit -am “메세지” == 스테이징과 커밋을 한번에
+git commit —amend == 방금 커밋한 메세지 수정하기
+
+git diff == 수정, 변경사항 확인하기
+
+git checkout — 문서이름 == 작업트리에서 수정한 파일 되돌리기
+
+git reset 커밋아이디(해시) == 해당 커밋을 삭제
+git reset HEAD 파일이름 == 스테이징을 취소
+git reset HEAD^ == 가장 마지막에 한 커밋을 취소
+git reset —hard 커밋아이디(해시) 커밋 삭제하고 해시 커밋으로 되돌리기
+git revert 커밋아이디(해시) == 커밋을 삭제하지 않고 되돌리기
+
+
+——— branch ——-
+git branch 이름 == 브렌치 만들기
+git branch == 현재 브렌치 확인하기
+git checkout 이름 == 해당 브렌치로 이동하기
+git branch -d 브렌치이름 == 브렌치 삭제하기
+
+git merge 브렌치이름 == 브렌치 병합하기
+
+——- stash —— 
+
+git stash == 수정중인 파일을 숨김
+git stash pop == 수정된 상태로 다시 되돌림
+git stash apply == stash 목록중 나중에 다시 또 사용하게 될 경우 사용
+git stash drop == 가장 최신 stash 파일을 삭제함
+
+——깃 ssh 연결 쉽게 하기 ——
+ssh-keygen == ssh 키 만들기
+
+cd ~/.ssh ls -la
+cat id_rsa.pub
+복사해서 깃허브 ssh에 붙여넣고 저장
+
+——- clone ——-
+git clone 복사한주소 디렉터리이름 == 깃허브 복사하고 디렉터리가 없으면 자동으로 생성
+
+——- fetch ——-
+git fetch == 원격 브렌치 정보 가져오기
+git checkout FETCH_HEAD == 브렌치로 들어가서 최신 정보 확인하기
+git merge FETCH_HEAD == 페치로 가져온 브렌치 한번에 병합하기
